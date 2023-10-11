@@ -3,20 +3,17 @@ import java.util.Scanner;
 public class CalculatorService {
     public static void startCalculator() {
         System.out.println("Введите уравнение:");
-
         Scanner sca = new Scanner(System.in);
-        String us = sca.nextLine();
-        us = us.trim();
-        String[] dat = us.split(" ");
-
+        String UserInput = sca.nextLine();
+        String[] dat = UserInput.split(" ");
         try {
-            int R = Validator.CheckData(dat);
+            int R = Validator.checkData(dat);
             switch (R) {
                 case 1:
-                    System.out.println(Calculator.ArabCalc(dat[0], dat[1], dat[2]));
+                    System.out.println(Calculator.calculateArab(dat[0], dat[1], dat[2]));
                     break;
                 case 2:
-                    System.out.println(Calculator.RomeCalc(dat[0], dat[1], dat[2]));
+                    System.out.println(Calculator.calculateRome(dat[0], dat[1], dat[2]));
                     break;
             }
         } catch (Exception ex) {
