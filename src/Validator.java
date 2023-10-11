@@ -26,7 +26,7 @@ public class Validator {
 
     static boolean checkForArab(String a) {
         for (String number : ARAB_IN) {
-            if (a.equalsIgnoreCase(number)) {
+            if (a.equals(number)) {
                 return true;
             }
         }
@@ -44,7 +44,7 @@ public class Validator {
 
     static boolean checkForOperator(String a) {
         for (String operator : OPERATORS) {
-            if (a.equalsIgnoreCase(operator)) {
+            if (a.equals(operator)) {
                 return true;
             }
         }

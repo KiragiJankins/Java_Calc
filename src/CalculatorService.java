@@ -5,15 +5,15 @@ public class CalculatorService {
         System.out.println("Введите уравнение:");
         Scanner sca = new Scanner(System.in);
         String UserInput = sca.nextLine();
-        String[] dat = UserInput.split(" ");
+        String[] data = UserInput.split(" ");
         try {
-            int R = Validator.checkData(dat);
+            int R = Validator.checkData(data);
             switch (R) {
                 case 1:
-                    System.out.println(Calculator.calculateArab(dat[0], dat[1], dat[2]));
+                    System.out.println(Calculator.calculateArab(data[0], data[1], data[2]));
                     break;
                 case 2:
-                    System.out.println(Calculator.calculateRome(dat[0], dat[1], dat[2]));
+                    System.out.println(Calculator.calculateRome(data[0], data[1], data[2]));
                     break;
             }
         } catch (Exception ex) {
