@@ -9,11 +9,14 @@ public class Validator {
     public static final String INVALID_FORMAT = "Введите корректное уравнение в формате: a [оператор] b. Вводимые числа должны быть в диапазоне от 1 до 10.";
     public static final String DIFF_NUM_SYSTEMS = "Вводимые числа должны быть одной системы счисления.";
     public static final String NEGATIVE_RESULT = "Результат не может быть отрицательным, введите другое уравнение.";
+    public static final String ROME_UPPER_CASE ="Вводимые римские числа должны быть в верхнем регистре.";
 
     public static int convertRomeToArab(String a) throws Exception {
         for (int i = 0; i < ROME_INPUT.length; i++) {
-            if (ROME_INPUT[i].equalsIgnoreCase(a)) {
+            if (ROME_INPUT[i].equals(a)) {
                 return i + 1;
+            } else if (ROME_INPUT[i].equalsIgnoreCase(a)) {
+                throw new Exception(ROME_UPPER_CASE);
             }
         }
         throw new Exception(INVALID_RANGE);
@@ -59,6 +62,11 @@ public class Validator {
                 && !sameNumSystem) {
             throw new Exception(DIFF_NUM_SYSTEMS);
         } else {
+            throw new Exception(INVALID_FORMAT);
+        }
+    }
+    public static void checkForSpace(String a)throws Exception{
+        if (a.endsWith(" ")){
             throw new Exception(INVALID_FORMAT);
         }
     }
