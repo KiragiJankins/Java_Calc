@@ -4,11 +4,10 @@ public class CalculatorService {
     public static void startCalculator() {
         System.out.println("Введите уравнение:");
         Scanner sca = new Scanner(System.in);
-        String UserInput = sca.nextLine();
-        String[] data = UserInput.split(" ");
+        String userInput = sca.nextLine();
+        String[] data = userInput.split(" ");
         try {
-            int R = Validator.checkData(data);
-            switch (R) {
+            switch (Validator.checkData(data)) {
                 case 1:
                     System.out.println(Calculator.calculateArab(data[0], data[1], data[2]));
                     break;

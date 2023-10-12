@@ -1,20 +1,18 @@
 public class Calculator {
+    public static final String WRONG_OPERATOR = "Неверный оператор.";
+
     public static void main(String[] args) {
         CalculatorService.startCalculator();
     }
 
     static int calculateArab(String a, String b, String c) throws Exception {
-        int x = Integer.parseInt(a);
-        int y = Integer.parseInt(c);
-        return calculation(x, y, b);
+        return calculation(Integer.parseInt(a), Integer.parseInt(c), b);
     }
 
     static String calculateRome(String a, String b, String c) throws Exception {
-        int y = Validator.convertRomeToArab(c);
-        int x = Validator.convertRomeToArab(a);
-        int result = calculation(x, y, b);
+        int result = calculation(Validator.convertRomeToArab(a), Validator.convertRomeToArab(c), b);
         return (Validator.convertArabToRome(result));
-
+        //В этом месте я не стал заменять result на всё выражение в строке 11, т.к. получилось бы слишком сложное выражение
     }
 
     static int calculation(int a, int b, String operator) throws Exception {
@@ -23,7 +21,7 @@ public class Calculator {
             case "-" -> a - b;
             case "*" -> a * b;
             case "/" -> a / b;
-            default -> throw new Exception(Exceptions.WRONG_OPERATOR);
+            default -> throw new Exception(WRONG_OPERATOR);
         };
     }
 }
